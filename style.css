@@ -19,6 +19,39 @@
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
 
+/* ── Navigation ── */
+.main-nav {
+    position: fixed;
+    top: 44px;
+    left: 0; width: 100%; z-index: 999;
+    padding: 12px 0;
+    background: rgba(6,6,8,0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.nav-login {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 6px 16px;
+    border: 1px solid rgba(0,242,255,0.3);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+.nav-login:hover {
+    background: rgba(0,242,255,0.1);
+    border-color: var(--primary);
+}
+
 body {
     background: var(--bg-dark);
     color: var(--text-main);
@@ -388,9 +421,44 @@ h1,h2,h3,.font-heading {
 
 /* ── Footer ── */
 footer {
-    text-align: center; padding: 50px 0;
+    padding: 60px 0 40px;
     border-top: 1px solid var(--border);
     background: var(--bg-dark);
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+}
+.footer-brand p {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    font-weight: 300;
+}
+.footer-links h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+.footer-links a {
+    display: block;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 0.7rem;
+    transition: var(--transition);
+}
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 /* ── Widget ── */
