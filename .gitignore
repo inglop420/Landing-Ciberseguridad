@@ -1,0 +1,11 @@
+# Archivos generados / temporales
+cyber_shield_ai.png
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
