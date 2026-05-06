@@ -1,0 +1,260 @@
+#openclaw-widget-container {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9999;
+    font-family: 'Inter', sans-serif;
+}
+
+.sales-agent-launcher {
+    width: 64px;
+    height: 64px;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 20%, rgba(212,255,0,0.18), rgba(0,242,255,0.08) 38%, var(--bg-card) 72%);
+    color: var(--text-main);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 28px var(--primary-glow);
+    animation: pulse 2.5s infinite;
+}
+
+.sales-agent-launcher span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+.sales-agent-panel {
+    width: min(380px, calc(100vw - 32px));
+    height: min(620px, calc(100vh - 120px));
+    background: rgba(12, 12, 16, 0.96);
+    border: 1px solid rgba(0,242,255,0.28);
+    border-radius: 8px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.62), 0 0 40px rgba(0,242,255,0.1);
+    backdrop-filter: blur(18px);
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.sales-agent-hidden {
+    display: none;
+}
+
+.sales-agent-header {
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(0,242,255,0.16), rgba(212,255,0,0.08));
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.sales-agent-title {
+    display: grid;
+    gap: 2px;
+}
+
+.sales-agent-title strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.sales-agent-title span {
+    color: var(--text-muted);
+    font-size: 0.74rem;
+    line-height: 1.4;
+}
+
+.sales-agent-close {
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    background: rgba(0,0,0,0.24);
+    color: var(--text-main);
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.sales-agent-body {
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sales-agent-message {
+    max-width: 88%;
+    padding: 11px 13px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    white-space: pre-wrap;
+}
+
+.sales-agent-message.assistant {
+    align-self: flex-start;
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--text-main);
+}
+
+.sales-agent-message.user {
+    align-self: flex-end;
+    background: linear-gradient(135deg, rgba(0,242,255,0.24), rgba(212,255,0,0.16));
+    border: 1px solid rgba(0,242,255,0.22);
+    color: #f7fff7;
+}
+
+.sales-agent-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.sales-agent-chip {
+    border: 1px solid rgba(0,242,255,0.22);
+    background: rgba(0,242,255,0.06);
+    color: var(--primary);
+    border-radius: 4px;
+    padding: 7px 9px;
+    cursor: pointer;
+    font-size: 0.74rem;
+}
+
+.sales-agent-footer {
+    border-top: 1px solid var(--border);
+    padding: 12px;
+    background: rgba(0,0,0,0.22);
+    display: grid;
+    gap: 10px;
+}
+
+.sales-agent-lead-form {
+    display: grid;
+    gap: 8px;
+    padding: 10px;
+    border: 1px solid rgba(212,255,0,0.18);
+    border-radius: 6px;
+    background: rgba(212,255,0,0.045);
+}
+
+.sales-agent-lead-form.sales-agent-hidden {
+    display: none;
+}
+
+.sales-agent-lead-form label {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    line-height: 1.4;
+}
+
+.sales-agent-lead-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.sales-agent-input,
+.sales-agent-textbox {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    background: rgba(0,0,0,0.32);
+    color: var(--text-main);
+    font: inherit;
+}
+
+.sales-agent-input {
+    padding: 9px 10px;
+    font-size: 0.78rem;
+}
+
+.sales-agent-input::placeholder,
+.sales-agent-textbox::placeholder {
+    color: var(--text-dim);
+}
+
+.sales-agent-compose {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+}
+
+.sales-agent-textbox {
+    min-height: 44px;
+    max-height: 110px;
+    resize: vertical;
+    padding: 10px;
+    font-size: 0.86rem;
+}
+
+.sales-agent-send,
+.sales-agent-buy,
+.sales-agent-save {
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.sales-agent-send {
+    min-width: 76px;
+    background: var(--primary);
+    color: #001013;
+}
+
+.sales-agent-save {
+    background: rgba(212,255,0,0.92);
+    color: #101400;
+    padding: 9px 12px;
+    font-size: 0.72rem;
+}
+
+.sales-agent-buy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    color: #000;
+    padding: 10px 12px;
+    font-size: 0.74rem;
+}
+
+.sales-agent-meta {
+    color: var(--text-dim);
+    font-size: 0.68rem;
+    min-height: 1rem;
+}
+
+@media (max-width: 768px) {
+    #openclaw-widget-container {
+        right: 16px;
+        bottom: 16px;
+    }
+
+    .sales-agent-panel {
+        width: calc(100vw - 24px);
+        height: min(620px, calc(100vh - 92px));
+    }
+
+    .sales-agent-message {
+        max-width: 94%;
+    }
+
+    .sales-agent-lead-row {
+        grid-template-columns: 1fr;
+    }
+}
