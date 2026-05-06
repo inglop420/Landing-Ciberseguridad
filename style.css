@@ -92,6 +92,9 @@ h1,h2,h3,.font-heading {
     display: flex; justify-content: center; gap: 1.2rem; align-items: center;
     text-transform: uppercase;
     box-shadow: 0 4px 20px rgba(255,0,50,0.4);
+    height: 44px;
+    min-height: 44px;
+    contain: layout style;
 }
 #timer {
     font-family: 'Space Grotesk', monospace;
@@ -100,6 +103,9 @@ h1,h2,h3,.font-heading {
     border-radius: 3px;
     font-size: 1rem;
     letter-spacing: 0.15em;
+    min-width: 100px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
 }
 
 /* ── Text Utils ── */

@@ -25,6 +25,7 @@
         </div>
     </nav>
 
+    <main>
     <!-- ═══ 1. HERO ═══ -->
     <section class="hero section-padding">
         <div class="container hero-content">
@@ -228,6 +229,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <footer>
         <div class="container footer-content">
@@ -251,10 +253,10 @@
         </div>
     </footer>
 
-    <div id="openclaw-widget-container">
-        <div style="background:var(--bg-card); border:1px solid var(--primary); padding:15px; border-radius:50%; width:60px; height:60px; display:flex; align-items:center; justify-content:center; cursor:pointer; animation:pulse 2.5s infinite;">
-            <span style="font-size:1.5rem;">🤖</span>
-        </div>
+    <div id="openclaw-widget-container" role="complementary" aria-label="Asistente virtual">
+        <button type="button" aria-label="Abrir asistente virtual" style="background:var(--bg-card); border:1px solid var(--primary); padding:15px; border-radius:50%; width:60px; height:60px; display:flex; align-items:center; justify-content:center; cursor:pointer; animation:pulse 2.5s infinite;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🤖</span>
+        </button>
     </div>
 
     <script src="main.js"></script>
