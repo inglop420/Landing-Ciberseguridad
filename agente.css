@@ -1,0 +1,484 @@
+/* ══════════════════════════════════════════════
+   CYBERGUARD ADVISOR PAGE — agente.css
+   Page-specific styles. Design tokens from style.css
+   ══════════════════════════════════════════════ */
+
+/* ── Nav tweaks for this page ── */
+.nav-back-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    transition: var(--transition);
+}
+.nav-back-link:hover {
+    color: var(--primary);
+}
+
+/* ══════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════ */
+.agent-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 100px;
+    background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(0,242,255,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 30% 70%, rgba(212,255,0,0.04) 0%, transparent 60%),
+        var(--bg-dark);
+    overflow: hidden;
+}
+.agent-hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 200px;
+    background: linear-gradient(to top, var(--bg-dark), transparent);
+    z-index: 1;
+}
+.agent-hero > * { position: relative; z-index: 2; }
+
+.agent-hero-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 5rem;
+    align-items: center;
+    width: 100%;
+}
+
+.agent-hero-text h1 {
+    font-size: clamp(2.8rem, 5vw, 5.5rem);
+    line-height: 0.93;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.agent-hero-subtitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.agent-hero-desc {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.agent-hero-visual {
+    position: relative;
+    perspective: 1200px;
+}
+.agent-hero-visual img {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+    box-shadow: 0 0 60px var(--primary-glow), 0 30px 60px rgba(0,0,0,0.5);
+    border: 1px solid rgba(0,242,255,0.2);
+    animation: float 7s ease-in-out infinite;
+}
+.agent-hero-glow {
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(circle at center, rgba(0,242,255,0.12) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: -1;
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50%      { opacity: 1; transform: scale(1.08); }
+}
+
+/* ══════════════════════════════════════════════
+   STATS BAR
+   ══════════════════════════════════════════════ */
+.agent-stats {
+    padding: 40px 0;
+    background: rgba(0,0,0,0.5);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+}
+.agent-stats .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.agent-stat-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.agent-stat-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+}
+.agent-stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+}
+
+/* ══════════════════════════════════════════════
+   HOW IT WORKS — 3 STEPS
+   ══════════════════════════════════════════════ */
+.agent-how {
+    background:
+        linear-gradient(180deg, rgba(6,6,8,0.94) 0%, rgba(6,6,8,0.88) 100%),
+        url('imagen/bg_awareness.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-bottom: 1px solid var(--border);
+}
+
+.agent-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+    counter-reset: step;
+}
+
+.agent-step-card {
+    background: rgba(255,255,255,0.02);
+    backdrop-filter: blur(12px);
+    padding: 3rem 2.5rem 2.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.agent-step-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.agent-step-card:hover::before { opacity: 1; }
+.agent-step-card:hover {
+    background: rgba(255,255,255,0.04);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(0,242,255,0.08);
+    border-color: rgba(0,242,255,0.15);
+}
+
+.agent-step-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    border: 1px solid rgba(212,255,0,0.3);
+    padding: 4px 14px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.agent-step-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    filter: drop-shadow(0 0 12px var(--primary-glow));
+}
+
+.agent-step-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
+}
+.agent-step-card p {
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 0.95rem;
+}
+
+.agent-step-tags {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+.agent-step-tags span {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    background: rgba(0,242,255,0.06);
+    border: 1px solid rgba(0,242,255,0.2);
+    border-radius: 3px;
+    color: var(--primary);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════════
+   CAPABILITIES GRID
+   ══════════════════════════════════════════════ */
+.agent-capabilities {
+    background:
+        linear-gradient(180deg, rgba(6,6,8,0.93) 0%, rgba(6,6,8,0.88) 100%),
+        url('imagen/bg_ecosystem.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-bottom: 1px solid var(--border);
+}
+
+.agent-cap-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.agent-cap-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    padding: 2rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    transition: var(--transition);
+}
+.agent-cap-item:hover {
+    border-color: rgba(0,242,255,0.15);
+    background: rgba(255,255,255,0.035);
+    transform: translateY(-4px);
+}
+
+.agent-cap-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,242,255,0.06);
+    border-radius: 10px;
+    border: 1px solid rgba(0,242,255,0.12);
+}
+
+.agent-cap-item strong {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+}
+.agent-cap-item p {
+    color: var(--text-muted);
+    font-weight: 300;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════════
+   PRICING CARD
+   ══════════════════════════════════════════════ */
+.agent-pricing {
+    background:
+        linear-gradient(180deg, rgba(6,6,8,0.92) 0%, rgba(6,6,8,0.85) 100%),
+        url('imagen/bg_guarantee.png');
+    background-size: cover;
+    background-position: center;
+    border-top: 1px solid var(--border);
+}
+
+.agent-pricing-card {
+    max-width: 560px;
+    margin: 4rem auto 0;
+    padding: 3.5rem 3rem;
+    background: rgba(0,242,255,0.02);
+    border: 1px solid rgba(0,242,255,0.2);
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 0 80px rgba(0,242,255,0.06), 0 30px 60px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+.agent-pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.agent-pricing-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    background: linear-gradient(135deg, rgba(255,0,50,0.15), rgba(255,80,0,0.1));
+    border: 1px solid rgba(255,0,50,0.3);
+    border-radius: 4px;
+    color: #ff4466;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.agent-pricing-header h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.agent-pricing-includes {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.agent-pricing-price {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+.agent-pricing-old {
+    display: block;
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    text-decoration: line-through;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+}
+.agent-pricing-current {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px var(--primary-glow));
+    line-height: 1;
+}
+.agent-pricing-currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.agent-pricing-period {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 0.8rem;
+    font-weight: 300;
+}
+
+.agent-pricing-features {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 2.5rem;
+}
+.agent-pricing-features li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.95rem;
+    color: var(--text-main);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.agent-pricing-features li span {
+    flex-shrink: 0;
+}
+
+.agent-pricing-btn {
+    width: 100%;
+    padding: 1.5rem 3rem;
+    font-size: 1.1rem;
+}
+
+.agent-pricing-secure {
+    color: var(--text-dim);
+    font-size: 0.72rem;
+    margin-top: 1.5rem;
+    letter-spacing: 0.08em;
+    font-weight: 300;
+}
+
+/* ══════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════ */
+.agent-faq {
+    background:
+        linear-gradient(180deg, rgba(6,6,8,0.94) 0%, rgba(6,6,8,0.9) 100%),
+        url('imagen/bg_syllabus.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════ */
+@media (max-width: 992px) {
+    .agent-hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .agent-hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .agent-hero-visual {
+        max-width: 450px;
+        margin: 2rem auto 0;
+    }
+    .agent-steps-grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .agent-cap-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .agent-hero-text h1 { font-size: 2.4rem; }
+    .agent-hero-subtitle { font-size: 1.1rem; }
+    .agent-hero-desc { font-size: 1.05rem; }
+    .agent-stat-number { font-size: 1.5rem; }
+    .agent-pricing-card { padding: 2.5rem 1.8rem; }
+    .agent-pricing-current { font-size: 3rem; }
+    .agent-cap-item { padding: 1.5rem; }
+}
