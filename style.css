@@ -52,6 +52,24 @@ html { scroll-behavior: smooth; }
     border-color: var(--primary);
 }
 
+.nav-cta-outline {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 6px 16px;
+    border: 1px solid rgba(212,255,0,0.4);
+    border-radius: 4px;
+    background: rgba(212,255,0,0.05);
+    transition: var(--transition);
+}
+.nav-cta-outline:hover, .nav-cta-outline.active {
+    background: rgba(212,255,0,0.15);
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(212,255,0,0.2);
+}
+
 body {
     background: var(--bg-dark);
     color: var(--text-main);
