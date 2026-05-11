@@ -362,7 +362,15 @@
 
             // TikTok Pixel
             if (typeof ttq === 'object') {
-                ttq.track('InitiateCheckout');
+                ttq.track('InitiateCheckout', {
+                    "contents": [{
+                        "content_id": "curso-ciberseguridad-ia",
+                        "content_type": "product",
+                        "content_name": "Curso Ciberseguridad Proactiva e IA"
+                    }],
+                    "value": 47.0,
+                    "currency": "USD"
+                });
             }
             
             // Google Analytics (GTAG)
