@@ -199,10 +199,10 @@ h1,h2,h3,.font-heading {
     gap: 5rem; align-items: center; width: 100%;
 }
 .hero-text h1 {
-    font-size: clamp(2.8rem, 5vw, 5.5rem);
-    line-height: 0.93;
-    margin-bottom: 2.5rem;
-    font-weight: 700;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.1;
+    margin-bottom: 2.2rem;
+    font-weight: 800;
 }
 .hero-text p {
     font-size: 1.35rem;
